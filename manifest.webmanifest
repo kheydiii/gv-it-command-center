@@ -1,7 +1,7 @@
 {
-  "name": "GV Asset Monitor",
-  "short_name": "GV Assets",
-  "description": "GPS, CCTV, WiFi and computer monitoring for GV buses and locations",
+  "name": "IT Command Center",
+  "short_name": "IT Center",
+  "description": "GV Florida IT: hardware asset monitoring and online booking customer support",
   "id": "./",
   "start_url": "./",
   "scope": "./",
