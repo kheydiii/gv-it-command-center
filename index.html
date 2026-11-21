@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <!-- GV Asset Monitor: installable shell. It opens the Apps Script web app full screen. -->
+  <!-- IT Command Center: installable shell. It opens the Apps Script web app full screen. -->
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>GV IT Command Center</title>
+  <title>IT Command Center</title>
   <meta name="theme-color" content="#0b1120">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="GV IT Command Center">
+  <meta name="apple-mobile-web-app-title" content="IT Center">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
@@ -34,7 +34,7 @@
 <body>
   <div id="splash">
     <img src="icons/icon-192.png" alt="">
-    <div class="t">GV IT Command Center</div>
+    <div class="t">IT Command Center</div>
     <div class="bar" id="bar"><i></i></div>
     <div class="s" id="msg"></div>
   </div>
@@ -42,7 +42,7 @@
 
   <script>
     // >>> Paste your web app URL here (Deploy > Manage deployments > Web app URL, ends with /exec) <<<
-    const APP_URL = 'https://script.google.com/macros/s/AKfycbwQ4J-YqJzLc6l2mbXJlLBCGj3KnvcDH4uBIZX-Ecm98UjCUSaf931HiQweO3mFus-4/exec';
+    const APP_URL = 'PASTE_YOUR_WEB_APP_URL_HERE';
 
     const $ = id => document.getElementById(id);
     const standalone = matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
@@ -56,7 +56,7 @@
       if (!/^https:\/\/script\.google\.com\/.+\/exec/.test(APP_URL)) { showMsg('Setup needed: paste the web app URL into index.html.'); return; }
       if (!navigator.onLine) { showMsg('No internet connection.', true); return; }
       const f = document.createElement('iframe');
-      f.src = APP_URL; f.title = 'GV Asset Monitor';
+      f.src = APP_URL; f.title = 'IT Command Center';
       f.allow = 'clipboard-write';
       f.onload = () => { $('splash').style.opacity = 0; setTimeout(() => $('splash').remove(), 300); };
       document.body.appendChild(f);
@@ -74,7 +74,7 @@
       const ios = /iphone|ipad|ipod/i.test(navigator.userAgent);
       let deferred = null;
       const show = text => { $('tipText').innerHTML = text; $('tip').style.display = 'flex'; };
-      addEventListener('beforeinstallprompt', e => { e.preventDefault(); deferred = e; $('tipBtn').style.display = 'block'; show('<b>Install GV Asset Monitor</b><br>Opens full screen from your home screen.'); });
+      addEventListener('beforeinstallprompt', e => { e.preventDefault(); deferred = e; $('tipBtn').style.display = 'block'; show('<b>Install IT Command Center</b><br>Opens full screen from your home screen.'); });
       $('tipBtn').onclick = async () => { if (!deferred) return; deferred.prompt(); await deferred.userChoice; deferred = null; $('tip').style.display = 'none'; };
       if (ios) setTimeout(() => show('<b>Install on iPhone</b><br>Tap Share <b>⬆︎</b> then <b>Add to Home Screen</b>.'), 2500);
       $('tipX').onclick = () => { $('tip').style.display = 'none'; try { localStorage.setItem('gv_tip_off', '1'); } catch (e) {} };
