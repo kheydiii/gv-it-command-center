@@ -11,8 +11,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="IT Center">
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
-  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <style>
     html, body { margin: 0; height: 100%; background: #0b1120; color: #e6ebf5; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
     iframe { position: fixed; inset: 0; width: 100%; height: 100%; border: 0; background: #0b1120; }
@@ -33,12 +33,12 @@
 </head>
 <body>
   <div id="splash">
-    <img src="icons/icon-192.png" alt="">
+    <img src="icon-192.png" alt="">
     <div class="t">IT Command Center</div>
     <div class="bar" id="bar"><i></i></div>
     <div class="s" id="msg"></div>
   </div>
-  <div id="tip"><img src="icons/icon-192.png" alt=""><div class="grow" id="tipText"></div><button id="tipBtn" style="display:none">Install</button><button class="x" id="tipX" aria-label="Close">✕</button></div>
+  <div id="tip"><img src="icon-192.png" alt=""><div class="grow" id="tipText"></div><button id="tipBtn" style="display:none">Install</button><button class="x" id="tipX" aria-label="Close">✕</button></div>
 
   <script>
     // >>> Paste your web app URL here (Deploy > Manage deployments > Web app URL, ends with /exec) <<<
@@ -63,7 +63,7 @@
       // Slow network: keep the splash but say so
       setTimeout(() => { if ($('splash')) $('msg').textContent = 'Still loading. Slow connection?'; }, 12000);
     }
-    addEventListener('offline', () => { if (!$('splash')) { document.body.insertAdjacentHTML('beforeend', '<div id="splash">' + '<img src="icons/icon-192.png" alt=""><div class="t">No internet connection</div><div class="s">Your work is not lost. Reconnect and try again.</div><button onclick="location.reload()">Try again</button></div>'); } });
+    addEventListener('offline', () => { if (!$('splash')) { document.body.insertAdjacentHTML('beforeend', '<div id="splash">' + '<img src="icon-192.png" alt=""><div class="t">No internet connection</div><div class="s">Your work is not lost. Reconnect and try again.</div><button onclick="location.reload()">Try again</button></div>'); } });
     start();
 
     // Offline support for this page (icon, splash, "no internet" message)
